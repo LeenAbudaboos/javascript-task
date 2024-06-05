@@ -15,8 +15,8 @@ console.log("*****************************************")
 
 //Q.2
 
-function Q2(n1,n2,n3){
-    let x=n1*n2*n3;
+function Q2(n1){
+    let x=n1;
     if(x<0){
         console.log("The sign is -");
     }

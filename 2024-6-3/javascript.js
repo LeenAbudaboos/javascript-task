@@ -60,6 +60,7 @@ array5.unshift(3)
 array5.unshift(1)
 array5.push(10)
 console.log(array5)
+console.log(array5[array5.length-1]) 
 
 //Q7
 

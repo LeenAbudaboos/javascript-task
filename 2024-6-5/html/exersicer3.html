@@ -6,42 +6,37 @@
     <title>Document</title>
 </head>
 <body>
-   
-    <select name="fontFamilys" id="fontFamilys" onchange="fun()">
-        
-        <option value="Arial">arial</option>
-        <option value="Times New Roman">Times New Roman</option>
-        
-    </select>
 
-    <select name="fontsize" id="fontsize" onchange="fun1()">
+        <select name="font-family" id="font-family"  onchange="change_family(this.value)"> 
+          <option value="Arial, sans-serif">Arial</option>
+          <option value="Times New Roman">Times New Roman</option>
+           
+        </select>
         
-        <option value="10px">10px</option>
-        <option value="15px">15px</option>
-        <option value="20px">20px</option>
-    </select>
-    <input type="checkbox" id="italic" onchange="">
-          <label for="italic">Italic</label>
-        
-          <input type="checkbox" id="bold" onchange="" >
-          <label for="bold">Bold</label>
-        
-          <input type="checkbox" id="underline" onchange="">
-          <label for="underline">Underline</label>
-    <br>
-    <P id="paragraph">paragraph</P>
+        <select name="font-size" id="font-size"  onchange="change_size(this.value)"> 
+           <option value="10px">10px</option>
+           <option value="20px">20px</option>
+           <option value="30px">30px</option>
+           
+            
+         </select>
 
+         <input type="checkbox" id="italic" onchange="change_style()">
+         <label for="italic">Italic</label>
+       
+         <input type="checkbox" id="bold" onchange="change_style()" >
+         <label for="bold">Bold</label>
+       
+         <input type="checkbox" id="underline" onchange="change_style()">
+         <label for="underline">Underline</label>
 
-    <script >
-        function fun(){
-        let x=    document.body.style.fontFamily=document.getElementById('fontFamilys').value;
-            document.getElementById('paragraph').innerHTML=x;
-        }
-        function fun1(){
-        let y= document.body.style.fontSize=document.getElementById('fontsize').value;
-            document.getElementById('paragraph').innerHTML=y;
-        }
+        <br>
 
-    </script>
+         <p id="paragraph"> you can't change this text style</p>
+ 
+    
+
+   <script src="../js/exersicer1.js"></script>
+</body>
 </body>
 </html>

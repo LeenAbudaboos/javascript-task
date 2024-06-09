@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+<form class="passwrd">
+    <label for="password">Password</label>
+    <input type="text" id="password"> <span id="error-1" class="error"></span><br>
+    <label for="repeat-password">repeat Password</label>
+    <input type="text" id="repeat-password"><span id="error-2" class="error"></span><br>
+    <button id="submit">Submit</button>
+
+
+</form>
+
+<script>
+
+let password = document.getElementById("password");
+let repeat_password = document.getElementById("repeat-password");
+document.getElementById("submit").style.visibility = "hidden";  
+
+
+ password.addEventListener("change" , function(){
+
+   let pass_string = password.value ; 
+   let re_pass_string = repeat_password.value ;
+   
+   console.log(pass_string  );
+
+   if(pass_string.length < 6){
+    console.log("too short ");
+    document.getElementById("error-1").innerHTML = "too short";
+    }else{
+    document.getElementById("error-1").innerHTML = " ";
+   }
+
+  if(pass_string!=re_pass_string){
+    document.getElementById("error-2").innerHTML = "passwords didn't match";
+    console.log( "passwords didn't match");
+  }else{
+    document.getElementById("error-2").innerHTML = " ";
+    console.log( "passwords match");
+  }
+  console.log( re_pass_string);
+  if (pass_string !== re_pass_string || pass_string.length < 6) {
+    document.getElementById("submit").style.visibility = "hidden";
+    console.log("hidden");
+} else {
+    document.getElementById("submit").style.visibility = "visible";
+    console.log("visible");
+}
+
+     
+});
+
+repeat_password.addEventListener("change" , function(){
+
+  let pass_string = password.value ; 
+  let re_pass_string = repeat_password.value ;
+  
+  if(pass_string!=re_pass_string){
+    document.getElementById("error-2").innerHTML = "passwords didn't match";
+    console.log( "passwords didn't match");
+  }else{
+    document.getElementById("error-2").innerHTML = " ";
+    console.log( "passwords match");
+  }
+  console.log( re_pass_string);
+
+  if (pass_string !== re_pass_string || pass_string.length < 6) {
+    document.getElementById("submit").style.visibility = "hidden";
+    console.log("hidden");
+} else {
+    document.getElementById("submit").style.visibility = "visible";
+    console.log("visible");
+}
+
+    
+});
+
+</script>
+
+</body>
+</html>

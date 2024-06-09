@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" class="songs">
+        <div>
+        <label for="song-text">song name : </label>
+        <input type="text" id="song-text"> 
+        <button id="add-song">Add Song</button>
+         </div>
+        
+        <ul id="songs-list" class="songs-list"></ul>
+    
+    </form>
+
+    <script>
+        document.getElementById("add-song").addEventListener("click"  , function(){
+    event.preventDefault();
+    let regex = /[a-zA-Z]/;
+    let song_name = document.getElementById("song-text").value ;
+    
+    let added_song = document.createElement("li");
+    added_song.innerText = song_name ;
+    if( regex.test(song_name)){
+  
+      document.getElementById("songs-list").appendChild(added_song);
+  
+    }
+    document.getElementById("song-text").value = "";
+  });
+    </script>
+</body>
+</html>

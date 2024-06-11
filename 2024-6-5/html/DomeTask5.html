@@ -27,9 +27,8 @@ document.getElementById("submit").style.visibility = "hidden";
  password.addEventListener("change" , function(){
 
    let pass_string = password.value ; 
-   let re_pass_string = repeat_password.value ;
-   
-   console.log(pass_string  );
+   let restring = repeat_password.value ;
+
 
    if(pass_string.length < 6){
     console.log("too short ");
@@ -38,15 +37,15 @@ document.getElementById("submit").style.visibility = "hidden";
     document.getElementById("error-1").innerHTML = " ";
    }
 
-  if(pass_string!=re_pass_string){
+  if(pass_string!=restring){
     document.getElementById("error-2").innerHTML = "passwords didn't match";
     console.log( "passwords didn't match");
   }else{
     document.getElementById("error-2").innerHTML = " ";
     console.log( "passwords match");
   }
-  console.log( re_pass_string);
-  if (pass_string !== re_pass_string || pass_string.length < 6) {
+  console.log( restring);
+  if (pass_string !== restring || pass_string.length < 6) {
     document.getElementById("submit").style.visibility = "hidden";
     console.log("hidden");
 } else {

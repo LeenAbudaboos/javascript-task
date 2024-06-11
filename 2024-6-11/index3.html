@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=4, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="contant"></div>
+    <script>
+        
+const cardContainer = document.getElementById('contant'); 
+
+     fetch('https://66681676f53957909ff67af8.mockapi.io/users/Students')
+    .then((response) => response.json())
+    .then((products) => {
+
+        products.forEach((product) => {
+
+
+            const name = product.name;
+            const id = product.id ;  
+
+            const input = createForm(id , name );
+            cardContainer.appendChild(input);
+        });
+    })
+    .catch((error) => {
+        console.error('Error fetching data:', error);
+    });
+
+
+    function createForm(id , name) {
+        
+        const form = document.createElement('div');
+        form.classList.add('form-div');
+
+        const input1 = document.createElement('input');
+        input1.classList.add('form-control-lg');
+
+        const input2 = document.createElement('input');
+        input2.classList.add('form-control-lg');
+    
+         input1.value = "id : " + id ;
+         input2.value = "name : " + name ;
+    
+        form.appendChild(input1);
+
+        form.appendChild(input2);
+        
+        return form;
+    }
+    
+
+    </script>
+</body>
+</html>

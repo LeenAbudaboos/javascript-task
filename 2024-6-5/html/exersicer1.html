@@ -8,6 +8,13 @@
 <body>
     <p id="text1" style="font-size: 40px; background-color: yellow; border: 1px;  ">
         Can i help you!</p>
-        <script src="../js/exersicer1.js"></script>
+        <script >
+            document.getElementById("text1").addEventListener("mouseover", function(){
+    this.innerHTML="can I help you !";  
+  });
+  document.getElementById("text1").addEventListener("mouseout", function() {
+    this.innerHTML="Hello world";  
+  });
+        </script>
 </body>
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="userForm">
+        <label for="name"> name:</label><br>
+        <input type="text" id="name" name="name" ><br>
+        <label for="Age">Age:</label><br>
+        <input type="text" id="Age" name="Age" ><br>
+        <label for="Gender">Gender:</label><br>
+        <input type="text" id="Gender" name="Gender" ><br>
+        <label for="BirthDate">Birth Date:</label><br>
+        <input type="text" id="BirthDate" name="BirthDate"><br>
+        <hr>
+        <label for="YourImage">Your Image:</label><br>
+        <input type="text" id="YourImage" name="YourImage" ><br>
+        <label for="Description">Description:</label><br>
+        <input type="text" id="Description" name="Description" ><br>
+        <label for="major">major & university:</label><br>
+        <input type="text" id="major" name="major" ><br>
+        <label for="major">Programming Language:</label>
+        <input type="checkbox" id="vehicle1" name="vehicle1" >
+        <label for="vehicle1"> HTML</label>
+        <input type="checkbox" id="vehicle2" name="vehicle2" >
+        <label for="vehicle1"> CSS</label>
+        <input type="checkbox" id="vehicle3" name="vehicle2"  >
+        <label for="vehicle1"> JS</label><br>
+        <hr>
+        <label for="number">siblings number:</label><br>
+        <input type="text" id="number" name="number" ><br>
+        <label for="description">description of siblings:</label><br>
+        <input type="text" id="description" name="description" ><br>
+
+        <input type="submit" value="Submit">
+      </form> 
+
+
+      <script>
+        document.getElementById('userForm').addEventListener('submit', function (x){
+       x .preventDefault();
+
+        const formData = {
+        name: document.getElementById('name').value,
+        age: document.getElementById('Age').value,
+        gender: document.getElementById('Gender').value,
+        birthDate: document.getElementById('BirthDate').value,
+        image: document.getElementById('YourImage').value,
+        description: document.getElementById('Description').value,
+        majorUniversity: document.getElementById('major').value,
+        siblingsNumber: document.getElementById('number').value,
+        siblingsDescription: document.getElementById('description').value,
+        
+    }
+    localStorage.setItem('userdata', JSON.stringify(formData));
+    document.getElementById('userForm');
+})
+
+
+      </script>
+</body>
+</html>

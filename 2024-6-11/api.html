@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<select name="" id="select">
+
+</select>
+<br><br>
+<img id="img" src="https://static.toiimg.com/thumb/msid-107091667,width-960,height-1280,resizemode-6.cms" alt="">
+
+    <script>
+        const url="https://66681676f53957909ff67af8.mockapi.io/users/Animals"
+      async  function GetData(){
+            const responsdata=await fetch(url);
+            const jsondata= await responsdata.json();
+            console.log(jsondata);
+        let imgcontainer=document.getElementById("img");
+        let selctlest=document.getElementById("select");
+
+        for(i=0 ; i<jsondata.length;i++){
+            let option=document.createElement("option");
+            option.value=jsondata[i].name;
+            option.innerHTML=jsondata[i].name;
+            selctlest.appendChild(option)
+        }
+        selctlest.addEventListener('change',function(){
+            let selctvalue=selctlest.value;
+            for(i=0 ; i<jsondata.length;i++){
+                if(selctvalue==jsondata[i].name){
+                    img.src=jsondata[i].image;
+                }
+            }
+        })
+
+        }
+        GetData();
+
+    </script>
+
+
+</body>
+</html>

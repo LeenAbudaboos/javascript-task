@@ -4,107 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <div class="div-1"> 
+  
         <form id="myForm" >
     
             <label>Enter a first name: </label><br>
-            <input type="text" id="fname" required><br>
-            <span id="fnameError" class="error"></span><br>
+            <input type="text" id="fname" required onkeyup="valdetname()"><span id="fnameerror"></span><br>
+            
+            <br>
     
             <label>Enter a last name: </label><br>
             <input type="text" id="lname" required><br>
-            <span id="lnameError" class="error"></span><br>
+            <br>
     
             <label>Enter a Birthdate:</label><br>
-            <input type="text" id="bdate" required><br>
-            <span id="bdateError" class="error"></span><br>
+            <input type="text" id="bdate" required onkeyup="validateBirthdate()"><span id="bdateerror"></span><br>
+            <br>
     
             <label>Enter email: </label><br>
-            <input type="email" id="email" required><br>
-            <span id="emailError" class="error"></span><br>
+            <input type="email" id="email" required onkeyup="validateEmail()"><span id="emailerror"></span><br>
+            <br>
     
             <label>Confirm Email:</label><br>
-            <input type="email" id="confirmEmail" required><br>
-            <span id="confirmEmailError" class="error"></span><br>
+            <input type="email" id="confirmEmail" required onkeyup="validateEmail()"><br>
+            <br>
     
             <label>Password: </label><br>
             <input type="password" id="password" required><br>
-            <span id="passwordError" class="error"></span><br>
+            <br>
     
             <label>Confirm password: </label><br>
             <input type="password" id="confirmPassword" required><br>
-            <span id="confirmPasswordError" class="error"></span><br>
+            <br>
     
             <button type="submit">Submit</button>
         </form>
 
 
         <script>
-            
-document.getElementById('myForm').addEventListener('submit', function (x) {
-
-x.preventDefault();
+    
 
 
-document.querySelectorAll('.error').forEach(element => element.innerHTML = '');
 
-const fname = document.getElementById('fname').value;
 const lname = document.getElementById('lname').value;
 const bdate = document.getElementById('bdate').value;
 const email = document.getElementById('email').value;
-
-
 const confirmEmail = document.getElementById('confirmEmail').value;
 const password = document.getElementById('password').value;
 const confirmPassword = document.getElementById('confirmPassword').value;
+var regName = /^[a-zA-Z]+$/; 
+function valdetname(){
+    const fname = document.getElementById('fname');
+    const fnameinput=fname.value.trim();
+    const error=document.getElementById("fnameerror");
+    if(regName.test(fnameinput)==false && fnameinput !==''){
+        error.innerHTML="Numbers aare not allow"
+    }
+    else {
+        error.innerHTML=''
+    }
 
-let all_true = true;
-
-const nameRegex = /^[a-zA-Z]+$/;
-const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d\d$/;
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //IDK if this will work 
-
- 
-if (nameRegex.test(fname) == false ) {
-    document.getElementById('fnameError').innerText = ' Numbers are not allowed';
-    all_true = false;
+}
+const regex = /^[a-zA-Z0–9._-]+@[a-zA-Z0–9.-]+\.[a-zA-Z]{2,4}$/;
+function validateEmail() {
+    const email = document.getElementById('email');
+    const emailinput=email.value.trim();
+     
+     const error=document.getElementById("emailerror");
+    if(regex.test(emailinput)==false && emailinput !==''){
+        error.innerHTML="The e-mail is not valid"
+    }
+    else {
+        error.innerHTML=''
+    }
 }
 
-if ( nameRegex.test(lname) == false ) {
-    document.getElementById('lnameError').innerText = ' Numbers are not allowed';
-    all_true = false;
+const regex1 = /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
+function validateBirthdate() {
+    const bdate = document.getElementById('bdate');
+    const bdateinput=bdate.value.trim();
+     const error=document.getElementById("bdateerror");
+    if(regex1.test(bdateinput)==false && bdateinput !==''){
+        error.innerHTML="The format should be dd/mm/yyyy"
+    }
+    else {
+        error.innerHTML=''
+    }
 }
- 
-if ( dateRegex.test(bdate) == false ) {
-    document.getElementById('bdateError').innerText = 'The format should be dd.mm.yyyy '  ;
-    all_true = false;
-}
-
-if ( emailRegex.test(email) == false ) {
-
-    document.getElementById('emailError').innerText = 'The e-mail is not valid'  ;
-    all_true = false;
-}
-
-if (email !== confirmEmail) {
-
-    document.getElementById('confirmEmailError').innerText = 'Emails do not match' ;
-    all_true = false;
-}
-
-if (password !== confirmPassword) {
-    document.getElementById('confirmPasswordError').innerText = 'Passwords do not match';
-    all_true = false;
-}
-
-if (all_true) {
-    alert('form submitted !');
-    document.getElementById('myForm').reset();
-}
-});
-
         </script>
 </body>
 </html>

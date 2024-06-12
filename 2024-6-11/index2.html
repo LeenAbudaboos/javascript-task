@@ -52,19 +52,13 @@
 
 
 
-const lname = document.getElementById('lname').value;
-const bdate = document.getElementById('bdate').value;
-const email = document.getElementById('email').value;
-const confirmEmail = document.getElementById('confirmEmail').value;
-const password = document.getElementById('password').value;
-const confirmPassword = document.getElementById('confirmPassword').value;
 var regName = /^[a-zA-Z]+$/; 
 function valdetname(){
     const fname = document.getElementById('fname');
     const fnameinput=fname.value.trim();
     const error=document.getElementById("fnameerror");
     if(regName.test(fnameinput)==false && fnameinput !==''){
-        error.innerHTML="Numbers aare not allow"
+        error.innerHTML="Numbers are not allow"
     }
     else {
         error.innerHTML=''
